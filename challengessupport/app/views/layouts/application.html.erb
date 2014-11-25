@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Challengessupport</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+<div>
+	<h3> Last created challenges </h3>
+	<ul>
+		<% @last_challenges.each do |challenge| %>
+			<li> <%=link_to challenge.title, challenge_path(challenge) %> </li>
+		<% end %>
+	</ul>
+</div>
+
+
+
+</body>
+</html>

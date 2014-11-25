@@ -1,0 +1,33 @@
+
+<p>
+Title: <%= @challenge.title %>
+<br>
+Image: <%= image_tag @challenge.poster.url %>
+<br>
+Description: <%= @challenge.description %> 
+</p>
+
+<br>
+<br>
+<br>
+
+
+<%= flash_message %>
+
+<%= form_for [@challenge, @support] do |f| %>
+	<%= f.label :mail %>
+	<%= f.text_field :mail %>
+	<br>
+	<%= f.submit 'Save' %>
+<% end %>
+
+<p>
+Num supporters: <%= @challenge.supports.count %>
+</p>
+
+<br>
+<br>
+
+<p>
+<%= link_to("challenges list", challenges_path) %>
+</p>

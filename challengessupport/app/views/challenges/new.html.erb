@@ -1,0 +1,17 @@
+
+
+	<%= form_for [@challenge], html: {multipart: true} do |f| %>
+
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		<br>
+		<%= f.label :description %>
+		<%= f.text_field :description %>
+		<br>
+		<%= f.label :poster %>
+		<%= f.file_field :poster %>
+		<br>	
+
+
+		<%= f.submit 'Save' %>
+	<% end %>

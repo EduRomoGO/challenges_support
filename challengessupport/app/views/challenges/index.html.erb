@@ -1,0 +1,30 @@
+
+<h1> Support some of our challenges! </h1>
+<ul>
+	<% @challenges.each do |challenge| %>
+		<li> 
+			Title: <%= link_to(challenge.title, challenge_path(challenge.id)) %> - Description: <%= challenge.description %> -
+			<%= link_to("Edit challenge", edit_challenge_path(challenge.id)) %>
+		</li>
+	<% end %>
+</ul>
+
+
+<% if previous_page? %>
+	<%= link_to('← Anterior', challenges_path(page: params[:page].to_i-1)) %>
+<% end %>
+
+<%= link_to('Siguiente →', challenges_path(page: params[:page].to_i+1)) %>
+
+
+
+<h1> ... or create one! </h1>
+
+<%= link_to("New Challenge!", new_challenge_path) %>
+
+<h1> search the challenges </h1>
+
+
+    <%= form_tag challenges_path, method: :get, class: "pure-form" do %>
+      <%= search_field_tag :key_word, params[:key_word], placeholder: "Search challenges" %>
+    <% end %>
